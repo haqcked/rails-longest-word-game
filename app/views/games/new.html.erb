@@ -1,0 +1,19 @@
+
+<div class="d-flex flex-column align-items-center">
+  <h1 class="m-4">New game</h1>
+  <ul class="list-inline">
+    <% @letters.each do |letter| %>
+      <li class="list-inline-item bg-primary text-light shadow p-3 rounded"><%= letter %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="d-flex flex-column align-items-center mt-4">
+  <p>What is the longest word you can find:</p>
+  <form action="/score" data-turbo="false" method="post" class="d-flex w-50">
+    <%# <label for="quetionInput" class="input">Ask your coach anything:</label> %>
+    <input type="text" name="answer" class="form-control">
+    <input type="submit" value="Play!" class="btn btn-primary">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  </form>
+</div>
